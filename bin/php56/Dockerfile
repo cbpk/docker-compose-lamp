@@ -1,5 +1,8 @@
 FROM php:5.6-apache
 
+#Replace Aliyun source
+sed -i  "s/deb\.debian\.org/mirrors\.aliyun\.com/g"  /etc/apt/sources.list
+
 RUN apt-get -y update && apt-get upgrade -y
 
 # Install tools && libraries
