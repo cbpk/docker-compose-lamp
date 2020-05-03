@@ -5,6 +5,9 @@ FROM php:7.4.2-apache-buster
  
 ARG DEBIAN_FRONTEND=noninteractive
 
+#Replace Aliyun sources
+RUN sed -i  "s/archive\.debian\.org/mirrors\.aliyun\.com/g"  /etc/apt/sources.list
+
 # Update
 RUN apt-get -y update --fix-missing && \
     apt-get upgrade -y && \
